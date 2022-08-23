@@ -1,58 +1,159 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+//neeeded packeges
+const inquirer = require("inquirer");
+const fs = require("fs");
+const { title } = require("process");
+const { rejects } = require("assert");
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'title',
-      message: 'What is the title of project?'
+//question arrays accesed with inquierers
+const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of project?",
+    validate: (titleInput) => {
+      if (titleInput) {
+        return true;
+      } else {
+        console.log("Please enter project title!");
+        return false;
+      }
     },
-    {
-        type: 'input',
-        name: 'mail',
-        message: 'What is your mail adress?'
-      },
-    {
-        type: 'input',
-        name: 'repository',
-        message: 'What is your Github repository name?'
-      },
-    {
-        type: 'input',
-        name: 'description',
-        message: 'Add description for your project!'
-      },
-      {
-        type: 'input',
-        name: 'future',
-        message: 'How can you improve this project in future?'
-      },
-      {
-        type: 'input',
-        name: 'learn',
-        message: 'What did you learn?'
-      },
-    {
-      type: 'checkbox',
-      message: 'what kind of interfaces are used',
-      name: 'stack',
-      choices: ['Graphical UI', 'Command line Interface', 'Menu-driven IU', 'Touch UI']
+  },
+  {
+    type: "input",
+    name: "mail",
+    message: "What is your mail adress?",
+    validate: (mailInput) => {
+      if (mailInput) {
+        return true;
+      } else {
+        console.log("Please add  mail adress!");
+        return false;
+      }
     },
-    {
-      type: 'list',
-      message: 'Does your project have a license?',
-      name: 'license',
-      choices: ['license1', 'licens2', 'license3']
+  },
+  {
+    type: "input",
+    name: "repository",
+    message: "What is your Github repository name?",
+    validate: (repoInput) => {
+      if (repoInput) {
+        return true;
+      } else {
+        console.log("Please add repository!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Add description for your project!",
+    validate: (descInput) => {
+      if (descInput) {
+        return true;
+      } else {
+        console.log("Please add description for project!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "future",
+    message: "How can you improve this project in future?",
+    validate: (futureInput) => {
+      if (futureInput) {
+        return true;
+      } else {
+        console.log("Dont forget to dream for future!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "learn",
+    message: "What did you learn?",
+    validate: (learnInput) => {
+      if (learnInput) {
+        return true;
+      } else {
+        console.log("Didnt you learn anything!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "checkbox",
+    message: "what kind of interfaces are used",
+    name: "UI",
+    choices: [
+      "Graphical UI",
+      "Command line Interface",
+      "Menu-driven IU",
+      "Touch UI",
+    ],
+    validate: (interfaceCheckbox) => {
+      if (interfaceCheckbox) {
+        return true;
+      } else {
+        console.log("You need to mark some of them!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "list",
+    message: "Does your project have a license?",
+    name: "license",
+    choices: [
+      "mit",
+      "agpl-3.0",
+      "apache-2.0",
+      "bsd-2-clause",
+      "bsd-3-clause",
+      "bsl-1.0",
+      "cc0-1.0",
+      "epl-2.0",
+      "gpl-2.0",
+      "gpl-3.0",
+      "lgpl-2.1",
+      "mpl-2.0",
+    ],
+    validate: (licenseList) => {
+      if (licenseList) {
+        return true;
+      } else {
+        console.log("Good Call");
+        return false;
+      }
+    },
+  },
+].then((data) => {
+  const writeFile = (fileContent) => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile("./generateReadme.md", fileContent, (err) => {
+        if (err) {
+          reject(err);
+          return console.log("Couldnt generate it");
+        }
+      });
+    });
+  };
+});
+
+//initialize to app
+function init(){
+    inquirer.prompt(questions)
+    .then(function(answer){
+        console.log(answer);
+        var fileContent=generateMarkdown(answer);
+        fs.writeFile(fileContent)
     }
-  ])
-  .then(data => {
-    const filename = `${data.name
-      .toLowerCase()
-      .split(' ')
-      .join('')}.json`;
+    
+    
+    )
+}
 
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), err =>
-      err ? console.log(err) : console.log('Success!')
-    );
-  });
+init();
