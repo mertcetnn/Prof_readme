@@ -1,8 +1,8 @@
 //neeeded packeges
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { title } = require("process");
-const { rejects } = require("assert");
+const generateMarkdown =require('./utils/generateMarkdown.js')
+const index=require('../index.js');
 
 //question arrays accesed with inquierers
 const questions = [
@@ -155,5 +155,7 @@ function init(){
     
     )
 }
-
+// function call
 init();
+
+module.exports = generateMarkdown;
