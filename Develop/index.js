@@ -1,11 +1,10 @@
 //neeeded packeges
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown =require('./utils/generateMarkdown.js')
-const index=require('../index.js');
+const generateMarkdown = require("./utils/generateMarkdown.js")
 
 //question arrays accesed with inquierers
-const questions = [
+inquirer.prompt ([
   {
     type: "input",
     name: "title",
@@ -130,32 +129,30 @@ const questions = [
       }
     },
   },
-].then((data) => {
-  const writeFile = (fileContent) => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile("./generateReadme.md", fileContent, (err) => {
-        if (err) {
-          reject(err);
-          return console.log("Couldnt generate it");
-        }
-      });
-    });
-  };
+]).then((data) => {
+
+questions = `${data.name}`
+  fs.writeFile(questions, JSON.stringify(data, null, '\t'), err =>
+  err ? console.log(err) : console.log('Success!'))
+
+
+
+
 });
 
-//initialize to app
-function init(){
-    inquirer.prompt(questions)
-    .then(function(answer){
-        console.log(answer);
-        var fileContent=generateMarkdown(answer);
-        fs.writeFile(fileContent)
-    }
+// //initialize to file
+// function init(){              ////////////////////
+//     inquirer.prompt(questions)
+//     .then(function(answer){
+//         console.log(answer);
+//         var fileContent=generateMarkdown({...answer});
+//         fs.writeFile(fileContent)
+//     }
     
     
-    )
-}
-// function call
-init();
+//     )
+// }
+// // function call
+// init();
 
-module.exports = generateMarkdown;
+// module.exports = generateMarkdown;
