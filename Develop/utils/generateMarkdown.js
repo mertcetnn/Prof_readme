@@ -1,5 +1,7 @@
 //function that returns a license badge based on which license is passed in
-
+const license=["agpl-3.0","apache-2.0",'bsd-2-clause',"bsd-3-clause","bsl-1.0","cc0-1.0","mit","epl-2.0",
+               "gpl-2.0","gpl-3.0","1gpl-2.1","mpl-2.0","unlicense"]
+        
 
 
 // If there is no license, return an empty string

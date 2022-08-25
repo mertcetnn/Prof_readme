@@ -4,7 +4,7 @@ const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js")
 
 //question arrays accesed with inquierers
-inquirer.prompt ([
+const question=[
   {
     type: "input",
     name: "title",
@@ -129,16 +129,19 @@ inquirer.prompt ([
       }
     },
   },
-]).then((data) => {
-
-questions = `${data.name}`
-  fs.writeFile(questions, JSON.stringify(data, null, '\t'), err =>
-  err ? console.log(err) : console.log('Success!'))
-
-
+].then((data) => {
+function writeReadme(filename,data){
+  fs.writeFile(filename,data),(err) =>{
+    if(err){
+      return console.log(err)
+    }
+    console.log("success")
+  }
+}
 
 
 });
+
 
 // //initialize to file
 // function init(){              ////////////////////
