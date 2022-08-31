@@ -3,8 +3,11 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js")
 
+
+
+function init() {        
 //question arrays accesed with inquierers
-questions=([
+inquirer.prompt([
   {
     type: "input",
     name: "title",
@@ -137,8 +140,8 @@ questions=([
 })
 
 .then(data => {///// i need to check double
-function writeReadme(filename,data){
-  fs.writeFile(filename,data),(err) =>{
+function writeReadme(answers,data){
+  fs.writeFile(answers,data),(err) =>{
     if(err){
       return console.log(err)
     }
@@ -147,22 +150,10 @@ function writeReadme(filename,data){
 }
 
 
-});
+})};
 
 
-//initialize to file
-function init(){              ////////////////////
-    inquirer.prompt(questions)
-    .then(function(answer){
-        console.log(answer);
-     writeReadme("README.md",generateMarkdown({...answer}));
-     
-    }
-    
-    
-    )
-}
-// function call
+
 init();
 
 module.exports = generateMarkdown;
