@@ -4,8 +4,7 @@ const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js")
 
 //question arrays accesed with inquierers
-inquirer
-  .prompt([
+questions=([
   {
     type: "input",
     name: "title",
@@ -124,8 +123,9 @@ inquirer
     validate: (licenseList) => {
       if (licenseList) {
         return true;
+
       } else {
-        console.log("Good Call");
+       
         return false;
       }
     },
@@ -136,8 +136,8 @@ inquirer
                            answers.description,answers.future,answers.lern,answers.UI,answers.license);
 })
 
-.then(response => {///// i need to check double
-function writeReadme(filename,response){
+.then(data => {///// i need to check double
+function writeReadme(filename,data){
   fs.writeFile(filename,data),(err) =>{
     if(err){
       return console.log(err)
@@ -155,7 +155,7 @@ function init(){              ////////////////////
     inquirer.prompt(questions)
     .then(function(answer){
         console.log(answer);
-     writeReadme("README.md",generateMarkdown(answer));
+     writeReadme("README.md",generateMarkdown({...answer}));
      
     }
     
@@ -165,4 +165,4 @@ function init(){              ////////////////////
 // function call
 init();
 
-// module.exports = generateMarkdown;
+module.exports = generateMarkdown;
