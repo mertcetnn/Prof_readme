@@ -1,11 +1,8 @@
-//function that returns a license badge based on which license is passed in
-const license=["agpl-3.0","apache-2.0",'bsd-2-clause',"bsd-3-clause","bsl-1.0","cc0-1.0","mit","epl-2.0",
-               "gpl-2.0","gpl-3.0","1gpl-2.1","mpl-2.0","unlicense"]
-        
+
 
 
 // If there is no license, return an empty string
-function renderLicense(license) {
+let badge =(license) => {
   if (license === "agpl-3.0") {
     return "[![License:agpl-3.0](https://img.shields.io/badge/license-agpl--3.0-ff69b4)(https://api.github.com/licenses/agpl-3.0)]";
   }
@@ -60,14 +57,7 @@ function renderLicense(license) {
     console.log('')
   }
 }
+//exporting and will be able to use in index.js
+module.exports= badge
 
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-  
-
-`;
-}
-
-module.exports = generateMarkdown;

@@ -7,13 +7,13 @@ const generateMarkdown = require("./utils/generateMarkdown.js")
 
 function init() {        
 //question arrays accesed with inquierers
-inquirer.prompt([
+const questions=[
   {
     type: "input",
     name: "title",
     message: "What is the title of project?",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Please enter project title!");
@@ -25,8 +25,8 @@ inquirer.prompt([
     type: "input",
     name: "mail",
     message: "What is your mail adress?",
-    validate: (mailInput) => {
-      if (mailInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Please add  mail adress!");
@@ -38,8 +38,8 @@ inquirer.prompt([
     type: "input",
     name: "repository",
     message: "What is your Github repository name?",
-    validate: (repoInput) => {
-      if (repoInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Please add repository!");
@@ -51,8 +51,8 @@ inquirer.prompt([
     type: "input",
     name: "description",
     message: "Add description for your project!",
-    validate: (descInput) => {
-      if (descInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Please add description for project!");
@@ -64,8 +64,8 @@ inquirer.prompt([
     type: "input",
     name: "future",
     message: "How can you improve this project in future?",
-    validate: (futureInput) => {
-      if (futureInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Dont forget to dream for future!");
@@ -77,8 +77,8 @@ inquirer.prompt([
     type: "input",
     name: "learn",
     message: "What did you learn?",
-    validate: (learnInput) => {
-      if (learnInput) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("Didnt you learn anything!");
@@ -96,8 +96,8 @@ inquirer.prompt([
       "Menu-driven IU",
       "Touch UI",
     ],
-    validate: (interfaceCheckbox) => {
-      if (interfaceCheckbox) {
+    validate: (answers) => {
+      if (answers) {
         return true;
       } else {
         console.log("You need to mark some of them!");
@@ -123,8 +123,8 @@ inquirer.prompt([
       "lgpl-2.1",
       "mpl-2.0",
     ],
-    validate: (licenseList) => {
-      if (licenseList) {
+    validate: (answers) => {
+      if (answers) {
         return true;
 
       } else {
@@ -133,25 +133,21 @@ inquirer.prompt([
       }
     },
   },
-])
+]
+inquirer
+.prompt(questions)
 .then(answers => {
-  console.info('Answer:', answers.title,answers.mail,answers.repository,
-                           answers.description,answers.future,answers.lern,answers.UI,answers.license);
+  console.log(JSON.stringify(answers, null, 2))
 })
+  .catch((error) => {
+    if (error.ans) {
+      console.log("Your console environment is not supported!")
+    } else {
+      console.log(error)
+    }})
 
-.then(data => {///// i need to check double
-function writeReadme(answers,data){
-  fs.writeFile(answers,data),(err) =>{
-    if(err){
-      return console.log(err)
-    }
-    console.log("success")
   }
-}
-
-
-})};
-
+  
 
 
 init();
