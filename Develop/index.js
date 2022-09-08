@@ -140,10 +140,10 @@ inquirer
 .prompt(questions)
 .then(answers => {
   badge(answers.license)
-console.log(badge)
+console.log(badge(answers.license))
 
 creatReadme=`
-
+ ${badge(answers.license) }
 #   - Title of project: ${answers.title}
 
 ##  - Description: ${answers.description}
@@ -164,12 +164,12 @@ creatReadme=`
 
 
 ## - LICENSE: 
-# ${answers.license}
+## --${answers.license}--
 
 
 ## - My Contact Information
 
-### EMAIL: ${answers.mail}
+### E-mail: ${answers.mail}
 
 ### Repository: ${answers.repository}
 `
