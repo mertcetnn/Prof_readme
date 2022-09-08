@@ -1,6 +1,4 @@
 
-
-
 // If there is no license, return an empty string
 let badge =(license) => {
   if (license === "agpl-3.0") {

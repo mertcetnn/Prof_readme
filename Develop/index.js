@@ -1,7 +1,9 @@
 //neeeded packeges
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./utils/generateMarkdown.js")
+const generateREADME = require("./generateREADME")
+const badge = require("./utils/License");
+
 
 
 
@@ -137,10 +139,48 @@ const questions=[
 inquirer
 .prompt(questions)
 .then(answers => {
-  console.log(JSON.stringify(answers, null, 2))
+  badge(answers.license)
+console.log(badge)
+
+creatReadme=`
+
+#   - Title of project: ${answers.title}
+
+##  - Description: ${answers.description}
+
+
+##  - How can we improve this project ?!
+      
+#### ${answers.future}
+
+
+## - What did i learn: 
+
+#### ${answers.learn}
+
+## - INTERFACE: 
+
+### ${answers.UI}
+
+
+## - LICENSE: 
+# ${answers.license}
+
+
+## - My Contact Information
+
+### EMAIL: ${answers.mail}
+
+### Repository: ${answers.repository}
+`
+
+
+
+  fs.writeFileSync("README.md",creatReadme)
+
 })
   .catch((error) => {
-    if (error.ans) {
+    if (error.answers) {
       console.log("Your console environment is not supported!")
     } else {
       console.log(error)
@@ -152,4 +192,4 @@ inquirer
 
 init();
 
-module.exports = generateMarkdown;
+module.exports = generateREADME;
