@@ -146,7 +146,7 @@ creatReadme=`
  ${badge(answers.license) }
 
 
- #####Table of Content
+ ## Table of Content
 - [Installation](#description)
 - [Future](#future)
 - [Learn](#learn)
@@ -154,18 +154,20 @@ creatReadme=`
 - [Mail](#mail)
 - [Repository](#repository)
 
-#   - Title of project: ${answers.title}
+##  - Title of project: 
+###${answers.title}
 
 
-# - Demo Link: https://www.youtube.com/watch?v=FdOXanoMi7Y
+## - Demo Link: https://www.youtube.com/watch?v=FdOXanoMi7Y
 
 
-##  - Description: ${answers.description}
+##  - Description: 
+###${answers.description}
 
 
 ##  - How can we improve this project ?!
       
-#### ${answers.future}
+### ${answers.future}
 
 
 ## - What did i learn: 
@@ -178,7 +180,7 @@ creatReadme=`
 
 
 ## - LICENSE: 
-## --${answers.license}--
+### --${answers.license}--
 
 
 ## - My Contact Information
