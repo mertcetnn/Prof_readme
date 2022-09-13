@@ -91,7 +91,7 @@ const questions=[
   {
     type: "checkbox",
     message: "what kind of interfaces are used",
-    name: "UI",
+    name: "ui",
     choices: [
       "Graphical UI",
       "Command line Interface",
@@ -146,11 +146,11 @@ creatReadme=`
  ${badge(answers.license) }
 
 
- # Table of Content
+ #####Table of Content
 - [Installation](#description)
 - [Future](#future)
 - [Learn](#learn)
-- [Interface](#UI)
+- [Interface](#ui)
 - [Mail](#mail)
 - [Repository](#repository)
 
@@ -174,7 +174,7 @@ https://www.youtube.com/watch?v=FdOXanoMi7Y
 
 ## - INTERFACE: 
 
-### ${answers.UI}
+### ${answers.ui}
 
 
 ## - LICENSE: 
