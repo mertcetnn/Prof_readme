@@ -1,5 +1,5 @@
 
- ![License=mit](https://img.shields.io/badge/license-MIT-blue)(https://api.github.com/licenses/mit)
+ ![License:bsd-2-clause](https://img.shields.io/badge/license-bsd--2--clause-important)(https://api.github.com/licenses/bsd-2-clause)
 
 
  ## Table of Content
@@ -11,14 +11,14 @@
 - [Repository](#repository)
 
 ##  - Title of project: 
-###Professional README
+### Professional README
 
 
 ## - Demo Link: https://www.youtube.com/watch?v=FdOXanoMi7Y
 
 
 ##  - Description: 
-###Creating an open source project on GitHub, it is important to have a quality README with information about the app--what is the app for, how to use the app, how to install it, how to report issues, and how to make contributions so that other developers are more likely to use and contribute to the success of the project.
+### Creating an open source project on GitHub, it is important to have a quality README with information about the app--what is the app for, how to use the app, how to install it, how to report issues, and how to make contributions so that other developers are more likely to use and contribute to the success of the project.
 
 
 ##  - How can we improve this project ?!
@@ -28,7 +28,7 @@
 
 ## - What did i learn: 
 
-#### How to add packages and declare right answers.
+### How to add packages and declare right answers.
 
 ## - INTERFACE: 
 
@@ -36,7 +36,7 @@
 
 
 ## - LICENSE: 
-### --mit--
+### --bsd-2-clause--
 
 
 ## - My Contact Information
