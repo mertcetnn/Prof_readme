@@ -154,7 +154,7 @@ creatReadme=`
 - [Mail](#mail)
 - [Repository](#repository)
 
-##  - Title of project: 
+## - Title of project: 
 ### ${answers.title}
 
 

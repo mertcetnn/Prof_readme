@@ -10,7 +10,7 @@
 - [Mail](#mail)
 - [Repository](#repository)
 
-##  - Title of project: 
+## - Title of project: 
 ### Professional README
 
 
