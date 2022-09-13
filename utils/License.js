@@ -26,7 +26,7 @@ let badge =(license) => {
   }
 
   if (license === "mit") {
-    return "[![License=mit](https://img.shields.io/badge/license-MIT-blue)](https://api.github.com/licenses/mit]";
+    return "[![License=mit](https://img.shields.io/badge/license-MIT-blue)(https://api.github.com/licenses/mit]";
   }
 
   if (license === "epl-2.0") {
